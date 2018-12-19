@@ -25,6 +25,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 //decorators in angular
 @NgModule({
+  
   declarations: [
     AppComponent,
     HomeComponent,
@@ -45,17 +46,17 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     
     RouterModule.forRoot([
      {path:'Home', component:HomeComponent},
-     {path:"",redirectTo:"Home",pathMatch:"full"},
+     {path:"",redirectTo:"Home",pathMatch:"full"}, //it will change entire route when route is changed prefix makes string as constant and then it adds string (route) to previous route
      {path:'about',component:AboutComponent},
      {path:'create', component:BlogCreateComponent},
      {path:'edit/:blogId', component:BlogEditComponent},
-     {path:'blog/:blogId', component:BlogViewComponent},
+     {path:'blog/:blogId', component:BlogViewComponent},  //one path is default and other blogid is from json in view
      {path:'**', component:NotfoundComponent}
     ])
 
   ],
   providers: [BlogService,BlogHttpService],
   //it tells that bootstsrap had made changes to app component  
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] //it creates components listed in bootstrap array and inserts each one into dom
 })
 export class AppModule { }

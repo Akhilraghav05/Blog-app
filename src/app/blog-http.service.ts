@@ -28,7 +28,7 @@ export class BlogHttpService {
   getAllBlogs(): any {
 
     let myResponse = this._http.get(this.baseUrl + '/all' + '?authToken=' + this.authToken)
-    return myResponse;
+    return myResponse; //returning to use in component
   }// end get all blogs
 
 

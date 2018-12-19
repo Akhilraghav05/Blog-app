@@ -19,13 +19,14 @@ export class BlogViewComponent implements OnInit {
 
 
   ngOnInit() {
-    let myBlogId = this._route.snapshot.paramMap.get('blogId');
-    console.log(myBlogId)
+    let myBlogId = this._route.snapshot.paramMap.get('blogId'); //this route snapshot brings data from route component where we can access data in recevier component i.e here
+    console.log(myBlogId) //parammap is used for getting id from url snapshot is used to read route parameter
     this.blogHttpService.getSingleBlog(myBlogId).subscribe(
 
       data => {
         console.log(data);
         this.currentBlog = data["data"];
+        return this.currentBlog;
       },
       error => {
         console.log("some error occured");
